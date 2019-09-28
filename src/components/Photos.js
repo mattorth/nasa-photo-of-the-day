@@ -1,6 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import styled from "styled-components";
 
+const NasaH1 = styled.h1`
+      color: #0b3d91;
+`;
+
+const NasaImg = styled.img`
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+`;
+
+const NasaP = styled.p`
+  color: #fc3d21;
+`;
+
+const PhotoContainer = styled.div`
+  width: 400px;
+  margin: 0 auto;
+`;
 
 export default function Photos() {
     const [nasaPic, setNasaPic] = useState({});
@@ -17,11 +36,13 @@ export default function Photos() {
       fetchData();
     }, []);
 
+    
+
     return (
-        <div className="Photos">
-            <h1>{nasaPic.title}</h1>
-            <img src={nasaPic.url}></img>
-            <p>{nasaPic.explanation}</p>
-        </div>
+        <PhotoContainer>
+            <NasaH1>{nasaPic.title}</NasaH1>
+            <NasaImg src={nasaPic.url}></NasaImg>
+            <NasaP>{nasaPic.explanation}</NasaP>
+        </PhotoContainer>
     )
 }
